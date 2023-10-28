@@ -8,6 +8,14 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
+const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
+
+const DATABASE_URL = "mongodb+srv://admin:Tonkita-22@cluster0.kna3k3z.mongodb.net/inventory?retryWrites=true&w=majority"
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(DATABASE_URL);
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
