@@ -31,6 +31,12 @@ body {
 
 a {
   color: var(--text-light);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text-dark);
+  cursor: pointer;  
 }
 
 .sidebar {
