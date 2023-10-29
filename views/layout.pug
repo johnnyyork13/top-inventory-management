@@ -4,4 +4,14 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    aside(class="sidebar")
+      h2 Actions
+      ul 
+        li
+          a(href="/inventory/add") Add Item
+        li
+          a(href="/inventory/all") View Inventory
+        li
+          a View Cart
+    main(class="main-content")
+      block content

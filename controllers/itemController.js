@@ -2,7 +2,7 @@ const asyncHandler= require('express-async-handler');
 const ItemSchema = require('../models/item');
 
 exports.get_add_item = asyncHandler((req, res, next) => {
-    res.render('add_item')
+    res.render('add_item', {title: "Add Item"})
 })
 
 exports.post_add_item = asyncHandler(async(req, res, next) => {
@@ -11,11 +11,16 @@ exports.post_add_item = asyncHandler(async(req, res, next) => {
         description: req.body.description,
         category: req.body.category,
         price: req.body.price,
-        numItems: req.body.numItems
     })
     await item.save();
     const allItems = await ItemSchema.find().exec();
     res.render('all_items', {item_list: allItems})
+})
+
+exports.delete_item = asyncHandler(async (req, res, next) => {
+    await ItemSchema.deleteOne({_id: req.params.id})
+    const allItems = await ItemSchema.find().exec();
+    res.render('all_items', {item_list: allItems});
 })
 
 exports.get_all_items = asyncHandler(async (req, res, next) => {
@@ -23,8 +28,9 @@ exports.get_all_items = asyncHandler(async (req, res, next) => {
     res.render('all_items', {item_list : allItems});
 })
 
+
+
 exports.view_item = asyncHandler(async (req, res, next) => {
     const item = await ItemSchema.findOne({_id: req.params.id}).exec();
-    console.log("THIS IS THE ITEM", item);
     res.render('item_page', {item: item})
 })

@@ -17,4 +17,6 @@ router.post('/inventory/all', itemController.post_add_item);
 
 router.get('/inventory/:id', itemController.view_item);
 
+router.get('/inventory/delete/:id', itemController.delete_item);
+
 module.exports = router;

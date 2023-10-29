@@ -7,7 +7,6 @@ const ItemSchema = new Schema({
     description: {type: String},
     category: {type: String},
     price: {type: Number},
-    numItems: {type: Number},
 })
 
 module.exports = mongoose.model("Item", ItemSchema);
