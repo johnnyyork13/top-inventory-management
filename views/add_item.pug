@@ -1,0 +1,16 @@
+extends layout 
+
+block content 
+  p Create New Item 
+  form(method="post" action="/inventory/all")
+    input(name="name" placeholder="Item Name")
+    br
+    input(name="description" placeholder="Item Description")
+    br
+    input(name="category" placeholder="Item Category")
+    br
+    input(name="price" placeholder="Item Price")
+    br
+    input(name="numItems" Placeholder="Quantity")
+    br
+    button(type="submit") Submit

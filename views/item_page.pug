@@ -1,0 +1,12 @@
+extends layout 
+
+block content
+  p Name: #{item.name}
+  p Description: #{item.description}
+  p Category: #{item.category}
+  p Price: #{item.price}
+  p Quantity: #{item.numItems}
+
+  a(href="/inventory/all") Back to Inventory
+  br
+  a(href="/") Back Home
