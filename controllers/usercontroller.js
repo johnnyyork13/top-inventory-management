@@ -1,6 +1,11 @@
 const asyncHandler = require('express-async-handler');
 
-exports.view_user = asyncHandler( async(req, res, next) => {
-    
-    res.render('view_user', {title: User})
+exports.get_add_user = asyncHandler( async(req, res, next) => {
+
+    res.render("add_user");
+})
+
+exports.get_all_users = asyncHandler( async(req, res, next) => {
+
+    res.render("all_users");
 })
