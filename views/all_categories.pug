@@ -1,4 +1,8 @@
 extends layout 
 
 block content 
-  p ALL CATEGORIES
+  section(class="info-container")
+    h2 All Categories 
+    each category in category_list 
+      li 
+        a(href=`/category/${category._id}`) #{category.categoryName}

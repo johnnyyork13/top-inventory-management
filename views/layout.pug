@@ -4,9 +4,12 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    header
+      h1 Database Operations and Procedures Ecosystem (D.O.P.E)
     aside(class="sidebar")
-      h2 Actions
+      h2 CRUD Actions
       ul 
+        li(class="li-middle") Create
         li
           a(href="/user/add") Add User 
         li
@@ -15,12 +18,32 @@ html
           a(href="/categories/add") Add Category
         br
         br
+        li(class="li-middle") Read
         li
-          a(href="/users/all") View Users
+          a(href="/users/all") View Users 
         li
           a(href="/inventory/all") View Inventory
-        li 
+        li
           a(href="/categories/all") View Categories
+        li
+        br
+        br
+        li(class="li-middle") Update
+        li
+          a(href="/user/edit") Update a User
+        li
+          a(href="/inventory/edit") Update Item
+        li
+          a(href="/category/edit") Update Category
+        br
+        br
+        li(class="li-middle") Delete
+        li
+          a(href="/users/delete") Delete User
+        li
+          a(href="/inventory/delete") Delete Item
+        li 
+          a(href="/categories/delete") Delete Category
         br
         br
 

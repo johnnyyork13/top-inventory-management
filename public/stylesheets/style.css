@@ -25,8 +25,28 @@ body {
   height: 100%;
   display: grid;
   grid-template-columns: 200px 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 80px 1fr;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  grid-template-areas: 
+    'sidebar header'
+    'sidebar main';
+}
+
+header {
+  grid-area: header;
+  background-color: var(--four);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-dark);
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+main {
+  grid-area: main;
 }
 
 a {
@@ -56,6 +76,11 @@ a:hover {
 li {
   list-style-type: none;
   margin-top: 10px;
+}
+
+.li-middle {
+  text-align: center;
+  text-decoration: underline;
 }
 
 .main-content {

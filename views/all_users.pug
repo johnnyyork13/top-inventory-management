@@ -1,4 +1,12 @@
 extends layout 
 
 block content 
-  p ALL USERS
+  section(class="info-container") 
+    h2 All Users 
+    each user in user_list 
+      li 
+        a(href=`/user/${user._id}`) #{user.userFirstName} #{user.userLastName}
+
+    br
+    br
+    a(href="/") Go Back 

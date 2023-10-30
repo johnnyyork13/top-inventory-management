@@ -3,10 +3,10 @@ extends layout
 block content
   section(class="info-container")
     if item
-        p Name: #{item.name}
-        p Description: #{item.description}
-        p Category: #{item.category}
-        p Price: #{item.price}
+        p Name: #{item.itemName}
+        p Description: #{item.itemDescription}
+        p Category: #{item.itemCategory}
+        p Price: #{item.itemPrice}
     else
         p There are no items currently available.
     a(href="/inventory/all") Back to Inventory

@@ -7,10 +7,10 @@ exports.get_add_item = asyncHandler((req, res, next) => {
 
 exports.post_add_item = asyncHandler(async(req, res, next) => {
     const item = new ItemSchema({
-        name: req.body.name,
-        description: req.body.description,
-        category: req.body.category,
-        price: req.body.price,
+        itemName: req.body.name,
+        itemDescription: req.body.description,
+        itemCategory: req.body.category,
+        itemPrice: req.body.price,
     })
     await item.save();
     const allItems = await ItemSchema.find().exec();

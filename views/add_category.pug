@@ -1,4 +1,11 @@
 extends layout 
 
 block content 
-  p ADD CATEGORY
+  section(class="form-container")
+    h2 Add Category
+    form(action="/categories/all" method="post")
+      input(name="categoryName" type="text" placeholder="Category Name")
+      br
+      input(name="categoryDescription" type="text" placeholder="Category Description")
+      br
+      button(type="submit") Submit

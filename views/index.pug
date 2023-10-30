@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  main(class="main-content")
+  section(class="info-container")
+    h2 Number of Users: #{allCounts.userCount}
+    h2 Number of Available Items in Inventory: #{allCounts.itemCount}
+    h2 Number of Categories: #{allCounts.categoryCount}
 
