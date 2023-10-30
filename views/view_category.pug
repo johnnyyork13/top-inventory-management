@@ -2,5 +2,13 @@ extends layout
 
 block content 
   section(class="info-container")
-    h2 View Category - #{category.categoryName}
-    h2 Category Description: #{category.categoryDescription}
+    h2 View Category 
+    table 
+      tr 
+        th Category Name 
+        th Description 
+        th 
+      tr 
+        td=category.categoryName 
+        td=category.categoryDescription 
+        td

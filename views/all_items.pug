@@ -3,10 +3,22 @@ extends layout
 block content
   section(class="info-container")
     h1 All Items
-    each item in item_list 
-      li 
-      a(href=`/inventory/${item._id}`)= item.itemName
-      br
-
-    form(action="/inventory/add" method="get")
-      button(type="submit") Add Item to Inventory 
+    table 
+      tr 
+        th Item Name 
+        th Description 
+        th Category 
+        th Price 
+        th 
+      each item in item_list 
+        tr 
+          td=item.itemName 
+          td=item.itemDescription 
+          td=item.itemCategory 
+          td=item.itemPrice
+          td
+            a(href=`/inventory/${item._id}`) View
+    br
+    br
+    a(href="/inventory/add") Add Item
+    

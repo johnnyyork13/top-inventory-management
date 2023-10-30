@@ -7,6 +7,8 @@ const ItemSchema = new Schema({
     itemDescription: {type: String},
     itemCategory: {type: String},
     itemPrice: {type: Number},
+    itemSellerName: {type: String},
+    itemSellerID: {type: String}
 })
 
 module.exports = mongoose.model("Item", ItemSchema);

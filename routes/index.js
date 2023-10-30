@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mainController = require('../controllers/mainController');
 const itemController = require('../controllers/itemController');
-const userController = require('../controllers/usercontroller');
+const sellerController = require('../controllers/sellerController');
 const categoryController = require('../controllers/categoryController');
 
 /* GET home page. */
@@ -22,13 +22,13 @@ router.get('/inventory/delete/:id', itemController.delete_item);
 
 
 
-router.get('/user/add', userController.get_add_user);
+router.get('/seller/add', sellerController.get_add_seller);
 
-router.post('/users/all', userController.create_new_user);
+router.post('/sellers/all', sellerController.create_new_seller);
 
-router.get('/users/all', userController.get_all_users);
+router.get('/sellers/all', sellerController.get_all_sellers);
 
-router.get('/user/:id', userController.get_view_user);
+router.get('/seller/:id', sellerController.get_view_seller);
 
 
 router.get('/categories/add', categoryController.get_add_category);

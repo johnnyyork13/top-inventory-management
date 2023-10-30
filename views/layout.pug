@@ -5,47 +5,46 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     header
-      h1 Database Operations and Procedures Ecosystem (D.O.P.E)
+      h1 Database Operations and Procedures Ecosystem
     aside(class="sidebar")
-      h2 CRUD Actions
+      h2
+        a(href="/") D.O.P.E HOME
       ul 
-        li(class="li-middle") Create
+        li(class="li-middle")
         li
-          a(href="/user/add") Add User 
+          a(href="/seller/add") Add Seller 
         li
           a(href="/inventory/add") Add Item
         li
           a(href="/categories/add") Add Category
-        br
-        br
-        li(class="li-middle") Read
+        li(class="li-middle")
         li
-          a(href="/users/all") View Users 
+          a(href="/sellers/all") View Sellers 
         li
-          a(href="/inventory/all") View Inventory
+          a(href="/inventory/all") View Items
         li
           a(href="/categories/all") View Categories
         li
         br
         br
-        li(class="li-middle") Update
-        li
-          a(href="/user/edit") Update a User
-        li
-          a(href="/inventory/edit") Update Item
-        li
-          a(href="/category/edit") Update Category
-        br
-        br
-        li(class="li-middle") Delete
-        li
-          a(href="/users/delete") Delete User
-        li
-          a(href="/inventory/delete") Delete Item
-        li 
-          a(href="/categories/delete") Delete Category
-        br
-        br
+        //- li(class="li-middle") Update
+        //- li
+        //-   a(href="/user/edit") Update a User
+        //- li
+        //-   a(href="/inventory/edit") Update Item
+        //- li
+        //-   a(href="/category/edit") Update Category
+        //- br
+        //- br
+        //- li(class="li-middle") Delete
+        //- li
+        //-   a(href="/users/delete") Delete User
+        //- li
+        //-   a(href="/inventory/delete") Delete Item
+        //- li 
+        //-   a(href="/categories/delete") Delete Category
+        //- br
+        //- br
 
     main(class="main-content")
       block content

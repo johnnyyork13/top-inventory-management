@@ -12,6 +12,8 @@ block content
       br
       input(name="price" placeholder="Item Price")
       br
+      select(name="sellerID" placeholder="Select Seller")
+        each seller in seller_list 
+          option(value=`${seller._id}`) #{seller.sellerName}
+      br
       button(type="submit") Submit
-  
-    a(href="/") Back Home

@@ -1,0 +1,23 @@
+extends layout 
+
+block content
+  section(class="info-container")
+    h2 View Seller
+    table 
+      tr 
+        th Username 
+        th Seller Name 
+        th Email
+        th Phone
+        th
+      tr 
+        td=seller.sellerUsername 
+        td=seller.sellerName
+        td=seller.sellerEmail 
+        td=seller.sellerPhone
+        td 
+          a Edit (not implemented)
+    br
+    br
+
+    a(href="/") Go Back

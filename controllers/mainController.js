@@ -1,4 +1,4 @@
-const UserSchema = require('../models/user');
+const UserSchema = require('../models/seller');
 const ItemSchema = require('../models/item');
 const CategorySchema = require('../models/category');
 const ItemInstanceSchema =- require('../models/iteminstance');

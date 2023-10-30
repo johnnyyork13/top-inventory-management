@@ -1,0 +1,24 @@
+extends layout 
+
+block content 
+  section(class="info-container") 
+    h2 All Sellers 
+    table
+      tr 
+        th Username
+        th Seller Name
+        th Email
+        th Phone
+        th
+      each seller in seller_list 
+        tr
+          td=seller.sellerUsername
+          td=seller.sellerName 
+          td=seller.sellerEmail
+          td=seller.sellerPhone
+          td
+            a(href=`/seller/${seller._id}`) View
+        
+    br
+    br
+    a(href="/") Go Back 

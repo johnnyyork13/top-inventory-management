@@ -3,6 +3,15 @@ extends layout
 block content 
   section(class="info-container")
     h2 All Categories 
-    each category in category_list 
-      li 
-        a(href=`/category/${category._id}`) #{category.categoryName}
+    table 
+      tr 
+        th Category Name 
+        th Description 
+        th
+      each category in category_list 
+        tr 
+          td=category.categoryName 
+          td=category.categoryDescription 
+          td 
+            a(href=`/category/${category._id}`) View
+        

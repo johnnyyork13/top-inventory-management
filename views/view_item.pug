@@ -1,0 +1,27 @@
+extends layout 
+
+block content
+  section(class="info-container")
+    h2 View Item 
+    if item
+      table 
+        tr 
+          th Item Name 
+          th Description 
+          th Category 
+          th Price 
+          th
+        tr
+          td=item.itemName 
+          td=item.itemDescription 
+          td=item.itemCategory 
+          td=item.itemPrice
+          td 
+    else
+        p There are no items currently available.
+      
+    br
+    br
+    a(href="/inventory/all") Back to Inventory
+    br
+    a(href=`/inventory/delete/${item._id}`) Delete

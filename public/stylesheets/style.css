@@ -79,8 +79,10 @@ li {
 }
 
 .li-middle {
-  text-align: center;
-  text-decoration: underline;
+  width: 100%;
+  height: 20px;
+  border-bottom: 2px solid var(--nine);
+  margin-bottom: 20px;
 }
 
 .main-content {
@@ -135,4 +137,32 @@ li {
 
 .info-container a, .info-container p {
   font-size: 1.3em;
+}
+
+.info-container table th {
+  border: 1px solid black;
+  background-color: var(--four);
+  padding: 5px;
+}
+
+.info-container table th:last-child {
+  background-color: var(--three);
+  border: none;
+}
+
+.info-container table td {
+  border: 1px solid black;
+  padding: 5px;
+  background-color: white;
+}
+
+.info-container table tr td:last-child {
+  background-color: var(--three);
+  border: none;
+}
+
+.inventory-add-col {
+  background-color: var(--five) !important;
+  padding: 0 !important;
+  text-align: center;
 }

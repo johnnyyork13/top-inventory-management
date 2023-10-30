@@ -2,7 +2,15 @@ extends layout
 
 block content
   section(class="info-container")
-    h2 Number of Users: #{allCounts.userCount}
-    h2 Number of Available Items in Inventory: #{allCounts.itemCount}
-    h2 Number of Categories: #{allCounts.categoryCount}
+    table 
+      tr 
+        th Number of Sellers 
+        th Number of Items in Inventory 
+        th Number of Categories 
+        th
+      tr
+        td=allCounts.userCount 
+        td=allCounts.itemCount 
+        td=allCounts.categoryCount
+        td
 

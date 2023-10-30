@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const ItemInstanceSchema = new Schema({
     itemName: {type: Schema.Types.ObjectId, ref: "Item", required: true},
-    userName: {type: Schema.Types.ObjectId, ref: "User", required: true},
+    sellerName: {type: Schema.Types.ObjectId, ref: "Seller", required: true},
 })
 
 module.exports = mongoose.model('ItemInstance', ItemInstanceSchema);

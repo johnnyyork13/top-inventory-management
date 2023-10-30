@@ -1,16 +1,21 @@
 const asyncHandler= require('express-async-handler');
 const ItemSchema = require('../models/item');
+const SellerSchema = require('../models/seller');
 
-exports.get_add_item = asyncHandler((req, res, next) => {
-    res.render('add_item', {title: "Add Item"})
+exports.get_add_item = asyncHandler(async (req, res, next) => {
+    const allSellers = await SellerSchema.find().exec();
+    res.render('add_item', {title: "Add Item", seller_list: allSellers})
 })
 
 exports.post_add_item = asyncHandler(async(req, res, next) => {
+    const seller = await SellerSchema.find({_id: req.body.sellerID}).exec();
     const item = new ItemSchema({
-        itemName: req.body.name,
-        itemDescription: req.body.description,
-        itemCategory: req.body.category,
-        itemPrice: req.body.price,
+        itemName: req.body.itemName,
+        itemDescription: req.body.itemDescription,
+        itemCategory: req.body.itemCategory,
+        itemPrice: req.body.itemPrice,
+        itemSellerName: seller.sellerName,
+        itemSellerID: req.body.sellerID
     })
     await item.save();
     const allItems = await ItemSchema.find().exec();
@@ -28,9 +33,8 @@ exports.get_all_items = asyncHandler(async (req, res, next) => {
     res.render('all_items', {item_list : allItems});
 })
 
-
-
 exports.view_item = asyncHandler(async (req, res, next) => {
     const item = await ItemSchema.findOne({_id: req.params.id}).exec();
-    res.render('item_page', {item: item})
+    console.log(item);
+    res.render('view_item', {item: item})
 })
