@@ -9,13 +9,15 @@ block content
         th Description 
         th Category 
         th Price 
-        th 
+        th Seller Name 
+        th
       each item in item_list 
         tr 
           td=item.itemName 
           td=item.itemDescription 
           td=item.itemCategory 
           td=item.itemPrice
+          td=item.itemSellerName
           td
             a(href=`/inventory/${item._id}`) View
     br

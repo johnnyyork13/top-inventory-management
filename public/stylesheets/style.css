@@ -116,6 +116,13 @@ li {
 }
 
 .form-container input {
+  box-sizing: border-box;
+  width: 50%;
+  height: 30px;
+}
+
+.seller-select {
+  box-sizing: border-box;
   width: 50%;
   height: 30px;
 }

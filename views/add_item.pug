@@ -4,15 +4,19 @@ block content
   section(class="form-container")
     h2=title 
     form(method="post" action="/inventory/all")
-      input(name="name" placeholder="Item Name")
+      input(name="itemName" placeholder="Item Name" required="true")
       br
-      input(name="description" placeholder="Item Description")
+      input(name="itemDescription" placeholder="Item Description" required="true")
       br
-      input(name="category" placeholder="Item Category")
+      select(onChange="" name="itemCategory" placeholder="Item Category" required="true" class="seller-select")
+       option(value="") Choose Category
+       each category in category_list 
+         option(value=`${category.categoryName}`) #{category.categoryName}
       br
-      input(name="price" placeholder="Item Price")
+      input(name="itemPrice" placeholder="Item Price" required="true")
       br
-      select(name="sellerID" placeholder="Select Seller")
+      select(name="sellerID" placeholder="Select Seller" class="seller-select" required="true")
+        option(value="") Choose Seller
         each seller in seller_list 
           option(value=`${seller._id}`) #{seller.sellerName}
       br

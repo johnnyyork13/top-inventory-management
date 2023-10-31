@@ -12,3 +12,22 @@ block content
         td=category.categoryName 
         td=category.categoryDescription 
         td
+    br
+    h2 Associated Items in Inventory 
+    table 
+      tr
+        th Category
+        th Seller
+        th Item Name 
+        th Description 
+        th Price 
+        th
+      each item in items 
+        tr 
+          td=item.itemCategory
+          td=item.itemSellerName
+          td=item.itemName 
+          td=item.itemDescription 
+          td=item.itemPrice
+          td
+    

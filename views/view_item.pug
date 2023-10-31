@@ -6,12 +6,14 @@ block content
     if item
       table 
         tr 
+          th Seller Name
           th Item Name 
           th Description 
           th Category 
           th Price 
           th
         tr
+          td=item.itemSellerName
           td=item.itemName 
           td=item.itemDescription 
           td=item.itemCategory 

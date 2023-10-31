@@ -1,14 +1,17 @@
 const asyncHandler= require('express-async-handler');
 const ItemSchema = require('../models/item');
 const SellerSchema = require('../models/seller');
+const CategorySchema = require('../models/category');
 
 exports.get_add_item = asyncHandler(async (req, res, next) => {
     const allSellers = await SellerSchema.find().exec();
-    res.render('add_item', {title: "Add Item", seller_list: allSellers})
+    const allCategories = await CategorySchema.find().exec();
+    res.render('add_item', {title: "Add Item", seller_list: allSellers, category_list: allCategories})
 })
 
 exports.post_add_item = asyncHandler(async(req, res, next) => {
-    const seller = await SellerSchema.find({_id: req.body.sellerID}).exec();
+    console.log(req);
+    const seller = await SellerSchema.findOne({_id: req.body.sellerID}).exec();
     const item = new ItemSchema({
         itemName: req.body.itemName,
         itemDescription: req.body.itemDescription,

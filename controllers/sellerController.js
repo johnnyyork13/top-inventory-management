@@ -1,4 +1,5 @@
 const asyncHandler = require('express-async-handler');
+const ItemSchema = require('../models/item');
 const SellerSchema = require('../models/seller');
 
 exports.get_add_seller = asyncHandler( async(req, res, next) => {
@@ -25,5 +26,7 @@ exports.create_new_seller = asyncHandler( async(req, res, next) => {
 
 exports.get_view_seller = asyncHandler( async(req, res, next) => {
     const seller = await SellerSchema.findOne({_id: req.params.id}).exec();
-    res.render("view_seller", {seller: seller});
+    const items = await ItemSchema.find({itemSellerName: seller.sellerName}).exec();
+
+    res.render("view_seller", {seller: seller, items: items});
 })

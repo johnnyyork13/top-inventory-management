@@ -2,7 +2,7 @@ extends layout
 
 block content
   section(class="info-container")
-    h2 View Seller
+    h2 Seller Information
     table 
       tr 
         th Username 
@@ -15,8 +15,28 @@ block content
         td=seller.sellerName
         td=seller.sellerEmail 
         td=seller.sellerPhone
-        td 
-          a Edit (not implemented)
+        td
+    br
+    br
+    h2 Seller Items
+    table 
+      tr 
+        th Item Name 
+        th Description 
+        th Category 
+        th Price 
+        th
+      if items.length > 0
+        each item in items 
+          tr 
+            td=item.itemName 
+            td=item.itemDescription 
+            td=item.itemCategory 
+            td=item.itemPrice
+            td
+      else
+        tr
+          td(colspan="5" style="text-align: center") No Items Related to Seller
     br
     br
 
