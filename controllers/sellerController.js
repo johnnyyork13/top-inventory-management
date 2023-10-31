@@ -3,8 +3,7 @@ const ItemSchema = require('../models/item');
 const SellerSchema = require('../models/seller');
 
 exports.get_add_seller = asyncHandler( async(req, res, next) => {
-
-    res.render("add_seller");
+    res.render("add_seller", {alertMessage: ""});
 })
 
 exports.get_all_sellers = asyncHandler( async(req, res, next) => {
@@ -19,9 +18,14 @@ exports.create_new_seller = asyncHandler( async(req, res, next) => {
         sellerEmail: req.body.sellerEmail,
         sellerPhone: req.body.sellerPhone
     });
-    await seller.save();
+    const checkSellers = await SellerSchema.findOne({sellerUsername: req.body.sellerUsername}).exec();
     const allSellers = await SellerSchema.find().exec();
-    res.render("all_sellers" , {seller_list: allSellers});
+    if (checkSellers) {
+        res.render("add_seller", {alertMessage: "alert-message"});
+    } else {
+        await seller.save();
+        res.render("all_sellers" , {seller_list: allSellers});
+    }
 })
 
 exports.delete_items = asyncHandler( async(req, res, next) => {

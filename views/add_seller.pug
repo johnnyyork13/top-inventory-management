@@ -4,7 +4,9 @@ block content
   section(class="form-container")
     h2 Add Seller 
     form(action="/sellers/all" method="post")
-      input(name="sellerUsername" type="text" placeholder="Username" required="true")
+      if alertMessage 
+        label(for="sellerUsername" style="color: red;") Username already exists
+      input(name="sellerUsername" type="text" placeholder="Username" required="true" class=`${alertMessage}`)
       br
       input(name="sellerName" type="text" placeholder="Seller Name" required="true")
       br
