@@ -1,0 +1,19 @@
+extends layout 
+
+block content
+  section(class="form-container")
+    h2 Update Seller 
+    form(action=`/seller/update/${seller._id}` method="post")
+      label(for="sellerUsername" class="seller-form-label") Username:
+      input(name="sellerUsername" type="text" placeholder="Username" required="true" value=`${seller.sellerUsername}`)
+      br
+      label(for="sellerName" class="seller-form-label") Name:
+      input(name="sellerName" type="text" placeholder="Seller Name" required="true" value=`${seller.sellerName}`)
+      br
+      label(for="sellerEmail" class="seller-form-label") Email:
+      input(name="sellerEmail" type="email" placeholder="Email" required="true" value=`${seller.sellerEmail}`)
+      br
+      label(for="sellerPhone" class="seller-form-label") Phone:
+      input(name="sellerPhone" type="phone" placeholder="Phone" required="true" value=`${seller.sellerPhone}`)
+      br
+      button(type="submit") Submit

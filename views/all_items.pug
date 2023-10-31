@@ -5,21 +5,25 @@ block content
     h1 All Items
     table 
       tr 
+        th Seller Name
         th Item Name 
         th Description 
         th Category 
         th Price 
-        th Seller Name 
         th
-      each item in item_list 
+      if item_list.length > 0
+        each item in item_list 
+          tr 
+            td
+              a(href=`/seller/${item.itemSellerID}` class="seller-link") #{item.itemSellerName}        
+            td=item.itemName 
+            td=item.itemDescription 
+            td=item.itemCategory 
+            td=item.itemPrice          
+            td
+      else 
         tr 
-          td=item.itemName 
-          td=item.itemDescription 
-          td=item.itemCategory 
-          td=item.itemPrice
-          td=item.itemSellerName
-          td
-            a(href=`/inventory/${item._id}`) View
+          td(colspan="5" style="text-align: center") No Items Currently in Inventory
     br
     br
     a(href="/inventory/add") Add Item

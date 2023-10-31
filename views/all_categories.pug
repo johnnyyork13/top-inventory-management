@@ -10,8 +10,8 @@ block content
         th
       each category in category_list 
         tr 
-          td=category.categoryName 
+          td
+            a(href=`/category/${category._id}` class='seller-link') #{category.categoryName }
           td=category.categoryDescription 
           td 
-            a(href=`/category/${category._id}`) View
         

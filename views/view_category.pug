@@ -22,12 +22,16 @@ block content
         th Description 
         th Price 
         th
-      each item in items 
+      if items.length > 0
+        each item in items 
+          tr 
+            td=item.itemCategory
+            td=item.itemSellerName
+            td=item.itemName 
+            td=item.itemDescription 
+            td=item.itemPrice
+            td
+      else 
         tr 
-          td=item.itemCategory
-          td=item.itemSellerName
-          td=item.itemName 
-          td=item.itemDescription 
-          td=item.itemPrice
-          td
+          td(colspan="5" style="text-align: center;") No Items Related to Category
     

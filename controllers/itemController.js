@@ -10,7 +10,6 @@ exports.get_add_item = asyncHandler(async (req, res, next) => {
 })
 
 exports.post_add_item = asyncHandler(async(req, res, next) => {
-    console.log(req);
     const seller = await SellerSchema.findOne({_id: req.body.sellerID}).exec();
     const item = new ItemSchema({
         itemName: req.body.itemName,

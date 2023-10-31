@@ -30,6 +30,12 @@ router.get('/sellers/all', sellerController.get_all_sellers);
 
 router.get('/seller/:id', sellerController.get_view_seller);
 
+router.post('/seller/:id', sellerController.delete_items);
+
+router.post('/seller/update/:id', sellerController.post_update_seller);
+
+router.get('/seller/update/:id', sellerController.get_update_seller);
+
 
 router.get('/categories/add', categoryController.get_add_category);
 

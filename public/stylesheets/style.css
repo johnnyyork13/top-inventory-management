@@ -54,9 +54,21 @@ a {
   text-decoration: none;
 }
 
+
 a:hover {
   color: var(--text-dark);
   cursor: pointer;  
+}
+
+.seller-link {
+  text-decoration: underline !important;
+}
+
+.update-link {
+  text-decoration: underline !important;
+  font-size: .7em !important;
+  position: absolute;
+  right: 0;
 }
 
 .sidebar {
@@ -98,7 +110,6 @@ li {
 }
 
 .form-container {
-
   height: 80%;
   width: 80%;
   display: flex;
@@ -127,6 +138,13 @@ li {
   height: 30px;
 }
 
+.seller-form-label {
+  width: 50%;
+  font-weight: bolder;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
 .form-container form button {
   height: 30px;
   width: 150px;
@@ -140,6 +158,12 @@ li {
   align-items: center;
   padding: 30px;
   padding-top: 0px;
+}
+
+.info-container h2 {
+  width: 40%;
+  position: relative;
+  text-align: center;
 }
 
 .info-container a, .info-container p {
@@ -172,4 +196,9 @@ li {
   background-color: var(--five) !important;
   padding: 0 !important;
   text-align: center;
+}
+
+.remove-selected-btn {
+  float:right;
+  margin-right: 10px;
 }

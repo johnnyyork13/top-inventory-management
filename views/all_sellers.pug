@@ -5,19 +5,23 @@ block content
     h2 All Sellers 
     table
       tr 
-        th Username
         th Seller Name
+        th Username
         th Email
         th Phone
         th
-      each seller in seller_list 
-        tr
-          td=seller.sellerUsername
-          td=seller.sellerName 
-          td=seller.sellerEmail
-          td=seller.sellerPhone
-          td
-            a(href=`/seller/${seller._id}`) View
+      if seller_list.length > 0
+        each seller in seller_list 
+          tr
+            td
+              a(href=`/seller/${seller._id}` class='seller-link') #{seller.sellerName}
+            td=seller.sellerUsername
+            td=seller.sellerEmail
+            td=seller.sellerPhone
+            td
+      else
+        tr 
+          td(colspan="4" style="text-align: center;") No Sellers Found in System
         
     br
     br

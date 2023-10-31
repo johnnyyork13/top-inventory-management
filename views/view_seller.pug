@@ -3,6 +3,7 @@ extends layout
 block content
   section(class="info-container")
     h2 Seller Information
+      a(href=`/seller/update/${seller._id}` class="update-link") Update
     table 
       tr 
         th Username 
@@ -19,25 +20,28 @@ block content
     br
     br
     h2 Seller Items
-    table 
-      tr 
-        th Item Name 
-        th Description 
-        th Category 
-        th Price 
-        th
-      if items.length > 0
-        each item in items 
-          tr 
-            td=item.itemName 
-            td=item.itemDescription 
-            td=item.itemCategory 
-            td=item.itemPrice
-            td
-      else
-        tr
-          td(colspan="5" style="text-align: center") No Items Related to Seller
-    br
-    br
-
-    a(href="/") Go Back
+    form(action=`/seller/${seller._id}` method="post")
+      table 
+        tr 
+          th Item Name 
+          th Description 
+          th Category 
+          th Price 
+          th Delete 
+          th
+        if items.length > 0
+          each item in items 
+            tr 
+              td=item.itemName 
+              td=item.itemDescription 
+              td=item.itemCategory 
+              td=item.itemPrice
+              td
+                input(type="checkbox" name=`_id` value=`${item._id}`)    
+              td
+        else
+          tr
+            td(colspan="5" style="text-align: center") No Items Related to Seller
+      br
+      br
+      button(type="submit" class="remove-selected-btn") Remove Selected Items
