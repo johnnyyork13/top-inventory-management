@@ -34,14 +34,14 @@ exports.delete_items = asyncHandler( async(req, res, next) => {
     }
     const seller = await SellerSchema.findOne({_id: req.params.id}).exec();
     const items = await ItemSchema.find({itemSellerName: seller.sellerName}).exec();
-    res.render('view_seller', {seller: seller, items: items});
+    res.render('view_seller', {seller: seller, items: items, alertClass: ""});
 })
 
 exports.get_view_seller = asyncHandler( async(req, res, next) => {
     const seller = await SellerSchema.findOne({_id: req.params.id}).exec();
     const items = await ItemSchema.find({itemSellerName: seller.sellerName}).exec();
 
-    res.render("view_seller", {seller: seller, items: items});
+    res.render("view_seller", {seller: seller, items: items, alertClass: ""});
 })
 
 exports.get_update_seller = asyncHandler( async(req, res, next) => {
@@ -59,5 +59,17 @@ exports.post_update_seller = asyncHandler( async(req, res, next) => {
     }).exec();
     const updatedSeller = await SellerSchema.findOne({_id: req.params.id}).exec();
     const items = await ItemSchema.find({itemSellerName: updatedSeller.sellerName}).exec();
-    res.render("view_seller", {seller: updatedSeller, items: items});
+    res.render("view_seller", {seller: updatedSeller, items: items, alertClass: ""});
+})
+
+exports.get_delete_seller = asyncHandler( async(req, res, next) => {
+    const getItems = await ItemSchema.find({itemSellerID: req.params.id}).exec();
+    if (getItems.length > 0) {
+        const seller = await SellerSchema.findOne({_id: req.params.id}).exec();
+        res.render("view_seller", {seller: seller, items: getItems, alertClass: "alert-class"})
+    } else {
+        await SellerSchema.deleteOne({_id: req.params.id}).exec();
+        const allSellers = await SellerSchema.find().exec();
+        res.render("all_sellers", {seller_list: allSellers});
+    }
 })

@@ -3,6 +3,7 @@ extends layout
 block content 
   section(class="info-container")
     h2 View Category 
+      a(href=`/category/update/${category._id}` class="update-link") Update
     table 
       tr 
         th Category Name 
@@ -14,24 +15,27 @@ block content
         td
     br
     h2 Associated Items in Inventory 
-    table 
-      tr
-        th Category
-        th Seller
-        th Item Name 
-        th Description 
-        th Price 
-        th
-      if items.length > 0
-        each item in items 
+    section(class=`${alertClass}`)
+      section(class=`alert-section ${alertClass}`) Please remove all related items before deleting category. 
+      table 
+        tr
+          th Category
+          th Seller
+          th Item Name 
+          th Description 
+          th Price 
+          th
+        if items.length > 0
+          each item in items 
+            tr 
+              td=item.itemCategory
+              td
+                a(href=`/seller/${item.itemSellerID}` class="seller-link") #{item.itemSellerName}
+              td=item.itemName 
+              td=item.itemDescription 
+              td=item.itemPrice
+              td
+        else 
           tr 
-            td=item.itemCategory
-            td=item.itemSellerName
-            td=item.itemName 
-            td=item.itemDescription 
-            td=item.itemPrice
-            td
-      else 
-        tr 
-          td(colspan="5" style="text-align: center;") No Items Related to Category
+            td(colspan="5" style="text-align: center;") No Items Related to Category
     

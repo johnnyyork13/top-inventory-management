@@ -36,6 +36,8 @@ router.post('/seller/update/:id', sellerController.post_update_seller);
 
 router.get('/seller/update/:id', sellerController.get_update_seller);
 
+router.get('/seller/delete/:id', sellerController.get_delete_seller);
+
 
 router.get('/categories/add', categoryController.get_add_category);
 
@@ -44,5 +46,11 @@ router.post("/categories/all", categoryController.post_add_category);
 router.get('/categories/all', categoryController.get_all_categories);
 
 router.get('/category/:id', categoryController.get_view_category);
+
+router.get('/category/delete/:id', categoryController.get_delete_category);
+
+router.get('/category/update/:id', categoryController.get_update_category);
+
+router.post('/category/update/:id', categoryController.post_update_category);
 
 module.exports = router;

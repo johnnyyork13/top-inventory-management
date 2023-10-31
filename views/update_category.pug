@@ -1,0 +1,14 @@
+extends layout 
+
+block content 
+  section(class="form-container")
+    h2 Add Category
+      a(href=`/category/delete/${category._id}` class='update-link') Delete
+    form(action=`/category/update/${category._id}` method="post")
+      label(for="categoryName" class="seller-form-label") Username:
+      input(name="categoryName" type="text" placeholder="Category Name" value=`${category.categoryName}`)
+      br
+      label(for="categoryDescription" class="seller-form-label") Username:
+      input(name="categoryDescription" type="text" placeholder="Category Description" value=`${category.categoryDescription}`)
+      br
+      button(type="submit") Submit

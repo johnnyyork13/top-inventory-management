@@ -3,6 +3,7 @@ extends layout
 block content
   section(class="form-container")
     h2 Update Seller 
+      a(href=`/seller/delete/${seller._id}` class='update-link') Delete
     form(action=`/seller/update/${seller._id}` method="post")
       label(for="sellerUsername" class="seller-form-label") Username:
       input(name="sellerUsername" type="text" placeholder="Username" required="true" value=`${seller.sellerUsername}`)

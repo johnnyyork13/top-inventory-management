@@ -20,8 +20,9 @@ block content
     br
     br
     h2 Seller Items
-    form(action=`/seller/${seller._id}` method="post")
-      table 
+    form(action=`/seller/${seller._id}` method="post" class=`${alertClass}`)
+      section(class=`alert-section ${alertClass}`) Please remove all items from inventory before deleting seller. 
+      table
         tr 
           th Item Name 
           th Description 
@@ -33,7 +34,7 @@ block content
           each item in items 
             tr 
               td=item.itemName 
-              td=item.itemDescription 
+              td=item.itemDescription
               td=item.itemCategory 
               td=item.itemPrice
               td
