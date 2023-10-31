@@ -3,8 +3,10 @@ extends layout
 block content 
   section(class="form-container")
     h2 Add Category
+    if alertMessage 
+      label(for="sellerUsername" style="color: red;") Category already exists
     form(action="/categories/all" method="post")
-      input(name="categoryName" type="text" placeholder="Category Name")
+      input(name="categoryName" type="text" placeholder="Category Name" class=`${alertMessage}`)
       br
       input(name="categoryDescription" type="text" placeholder="Category Description")
       br

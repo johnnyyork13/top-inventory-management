@@ -12,9 +12,14 @@ exports.post_add_category = asyncHandler( async(req, res, next) => {
         categoryName: req.body.categoryName,
         categoryDescription: req.body.categoryDescription
     })
-    await category.save();
+    const checkCategory = await CategorySchema.findOne({categoryName: req.body.categoryName}).exec();
     const allCategories = await CategorySchema.find().exec();
-    res.render('all_categories', {category_list: allCategories})
+    if (checkCategory) {
+        res.render('add_category', {category_list: allCategories, alertMessage: 'alert-message'})
+    } else {
+        await category.save();
+        res.render('all_categories', {category_list: allCategories, alertMessage: ""})
+    }
 })
 
 exports.get_view_category = asyncHandler( async(req, res, next) => {
